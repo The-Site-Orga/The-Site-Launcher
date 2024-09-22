@@ -22,6 +22,27 @@
     src: url('../fonts/Ringbearer.ttf');
 }
 
+@font-face {
+    font-family: 'Comfortaa';
+    src: url('../fonts/Comfortaa.ttf');
+}
+
+@font-face {
+    font-family: 'Bauhaus Md BT';
+    src: url('../fonts/Bauhaus.ttf');
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * Varaibles                                                                   *
+ *                                                                             *
+ ******************************************************************************/
+
+ :root {
+    --main-border-color: rgba(44, 44, 45, 0.5);
+    --main-button-background-color: rgba(27, 26, 31, 0.3);
+ }
+
 /*******************************************************************************
  *                                                                             *
  * Element Styles                                                              *
@@ -42,7 +63,7 @@ p {
 
 /* Set default font and color. */
 body, button {
-    font-family: 'Avenir Book';
+    font-family: 'Comfortaa';
     color: white;
 }
 
@@ -60,7 +81,7 @@ body, button {
 /* Frame Bar */
 #frameBar {
     position: relative;
-    z-index: 100;
+    z-index: 100;   
     display: flex;
     flex-direction: column;
     transition: background-color 1s ease;
@@ -1230,7 +1251,7 @@ body, button {
 
 /* Selected server content container */
 .settingsSelServContainer {
-    background: rgba(0, 0, 0, 0.25);
+    background-color: rgba(0, 0, 0, 0.25);
     width: 75%;
     border-radius: 3px;
     display: flex;
@@ -2157,12 +2178,13 @@ input:checked + .toggleSwitchSlider:before {
     border-bottom: 1px solid rgba(126, 126, 126, 0.57);
 }
 #settingsAboutLogo {
-    width: 30px;
-    height: 30px;
-    padding: 5px;
+    width: 50px;
+    height: 50px;
+    padding: 6px;
 }
 #settingsAboutTitle {
     font-size: 23px;
+    font-family: 'Bauhaus Md BT';
     padding-left: 10px;
 }
 
@@ -2458,31 +2480,45 @@ input:checked + .toggleSwitchSlider:before {
     position: relative;
     transition: top 2s ease;
     top: 0px;
-    height: 77%;
+    height: 85%;
     display: flex;
 }
+
 #landingContainer > #upper > #left {
     display: inline-flex;
-    width: 15%;
+    margin-top: 5px;
+    width: 10%;
     height: 100%;
     justify-content: flex-end;
 }
+
 #landingContainer > #upper > #content {
     display: inline-flex;
-    width: 70%;
+    width: 0%;
     height: 100%;
 }
+
 #landingContainer > #upper > #right {
     display: inline-flex;
-    width: 15%;
+    width: 90%;
     height: 100%;
+    justify-content: flex-end;
 }
 
 /* Lower content container. */
 #landingContainer > #lower {
-    height: 23%;
+    position: absolute;
+    bottom: 0;
+    height: auto;
+    width: 100%;
     display: flex;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    flex-wrap: wrap;
+}
+.info_new {
+    width: 100%;
+    text-align: center;
+    position: relative;
 }
 #landingContainer > #lower > #left {
     position: relative;
@@ -2492,14 +2528,16 @@ input:checked + .toggleSwitchSlider:before {
     width: 33%;
     display: inline-flex;
     justify-content: center;
+    margin-top: 21.2px;
 }
+
 #landingContainer > #lower > #left #content {
     position: relative;
-    top: 25px;
     display: inline-flex;
     line-height: 24px;
     left: 50px;
 }
+
 #landingContainer > #lower > #center {
     position: relative;
     transition: top 2s ease;
@@ -2508,13 +2546,16 @@ input:checked + .toggleSwitchSlider:before {
     width: 34%;
     display: inline-flex;
     justify-content: center;
+    text-align: center;
 }
+
 #landingContainer > #lower > #center #content {
     position: relative;
     z-index: 500;
     transition: top 2s ease;
     top: 10px;
 }
+
 #landingContainer > #lower > #right {
     position: relative;
     transition: top 2s ease;
@@ -2522,6 +2563,7 @@ input:checked + .toggleSwitchSlider:before {
     height: 100%;
     width: 33%;
     display: inline-flex;
+    margin-top: 21.6px;
 }
 
 /*******************************************************************************
@@ -2855,21 +2897,19 @@ input:checked + .toggleSwitchSlider:before {
 
 /* Logo image. */
 #image_seal {
-    height: 70px;
+    height: 100px;
     width: auto;
     position: relative;
-    border: 2px solid white;
     box-sizing: border-box;
-    border-radius: 50%;
 }
 
 /* Logo container styles. */
 #image_seal_container {
     position: relative;
-    height: 70px;
-    width: 70px;
+    height: 20%;
+    width: 20%;
     border-radius: 50%;
-    margin-top: 50px;
+    margin-top: 40px;
 }
 
 /* Logo container styles w/ update. */
@@ -2954,28 +2994,65 @@ input:checked + .toggleSwitchSlider:before {
     display: flex;
     flex-direction: column;
     position: relative;
-    top: 50px;
+    top: 10%;
     align-items: flex-start;
     height: calc(100% - 50px);
 }
 
 /* Right hand user content container. */
-#user_content {
+
+#user_info {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+#user_content {
+    display: grid;
+    grid-template-columns: auto 60px;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    position: relative;
+    position: absolute;
+    right: 80px;
+    padding: 10px;
+    border: 1px solid var(--main-border-color);
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    transition: 0.25s ease;
+}
+
+#user_name, #user_rank {
+    font-size: 15px;
+    width: max-content;
+    font-weight: 900;
+    text-shadow: 0px 0px 20px black;
+    text-align: right;
+    -webkit-user-select: initial;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+#user_rank {
+    color: rgb(165, 165, 165) !important;
+}
+
+#user_content:has(#avatarOverlay:hover),
+#user_content:has(#avatarOverlay:focus),
+#user_content:hover {
+    border: 1px solid #383B4C;
 }
 
 /* User profile avatar container. */
+
 #avatarContainer {
-    border-radius: 50%;
+    border-radius: 10px;
     border: 2px solid #cad7e1;
     box-sizing: border-box;
     background: rgba(1, 2, 1, 0.5);
-    height: 70px;
-    width: 70px;
+    height: 60px;
+    width: 60px;
     box-shadow: 0px 0px 10px 0px rgb(0, 0, 0);
     overflow: hidden;
     position: relative;
@@ -3001,12 +3078,14 @@ input:checked + .toggleSwitchSlider:before {
     cursor: pointer;
     width: 100%;
     height: 100%;
-    border-radius: 50%;
+    border-radius: 10px;
 }
+
 #avatarOverlay:hover,
 #avatarOverlay:focus {
     opacity: 1;
 }
+
 #avatarOverlay:active {
     background-color: rgba(0, 0, 0, 0.45);
 }
@@ -3026,13 +3105,25 @@ input:checked + .toggleSwitchSlider:before {
 
 /* Social media icon content container. */
 #mediaContent {
-    position: relative;
+    position: absolute;
     display: flex;
     flex-direction: column;
     margin-top: 25px;
-    height: calc(100% - 95px);
-    width: 70px;
+    height: auto;
+    width: 60px;
     align-items: center;
+    top: 80px;
+    right: 90px;
+    padding: 15px 5px 15px 5px;
+    border: 1px solid var(--main-border-color);
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    transition: 0.25s ease;
+}
+
+#mediaContent:hover,
+#mediaContent:focus {
+    border: 1px solid #383B4C;
 }
 
 /* Social Media Icon division containers. */
@@ -3046,7 +3137,8 @@ input:checked + .toggleSwitchSlider:before {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 27px;
+    height: 30px;
+    position: relative;
 }
 
 /* Divider bar between the external and internal icons. */
@@ -3060,17 +3152,15 @@ input:checked + .toggleSwitchSlider:before {
 /* Social media icon shared styles. */
 .mediaSVG {
     fill: #ffffff;
-    height: 12px;
     transition: 0.25s ease;
     cursor: pointer;
-    height: 12px;
     width: 25px;
 }
-.mediaSVG:hover,
+/* .mediaSVG:hover,
 .mediaURL:focus .mediaSVG,
 .mediaSVG:active {
     height: 20px;
-}
+} */
 
 /* Social media URL shared styles. */
 .mediaURL {
@@ -3094,12 +3184,12 @@ input:checked + .toggleSwitchSlider:before {
 /* Settings icon colors. */
 #settingsSVG {
     stroke: #ffffff;
-    height: 15px;
+    height: 22px;
 }
 .mediaButton:hover #settingsSVG,
 .mediaButton:focus #settingsSVG,
 .mediaButton:active #settingsSVG {
-    height: 23px;
+    height: 22px;
 }
 
 /* Settings tooltip styles. */
@@ -3136,6 +3226,45 @@ input:checked + .toggleSwitchSlider:before {
     transition-delay:0s;
 }
 
+#mediaTooltip {
+    right: 130%;
+    left: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    visibility: hidden;
+    opacity: 0;
+    width: 75px;
+    height: 20px;
+    background-color: rgba(0, 0, 0, 0.75);
+    text-align: center;
+    border-radius: 4px;
+    position: absolute;
+    z-index: 1;
+    font-size: 12px;
+    line-height: 20px;
+    transition: visibility 0s linear 0.25s, opacity 0.25s ease;
+    color: white;
+}
+#mediaTooltip::after {
+    content: " ";
+    position: absolute;
+    right: auto;
+    left: 100%;
+    top: 50%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent rgba(0, 0, 0, 0.75);
+}
+
+.mediaURL:hover #mediaTooltip,
+.mediaURL:focus #mediaTooltip,
+.mediaURL:active #mediaTooltip {
+    visibility: visible;
+    opacity: 1;
+    transition-delay:0s;
+}
+
 /* Twitter icon colors. */
 #twitterSVG:hover,
 #twitterURL:focus #twitterSVG {
@@ -3164,6 +3293,10 @@ input:checked + .toggleSwitchSlider:before {
     fill: #ea0202;
 }
 
+#linkURL {
+    fill: #383B4C;
+}
+
 /* Discord icon colors. */
 #discordSVG:hover,
 #discordURL:focus #discordSVG {
@@ -3181,7 +3314,7 @@ input:checked + .toggleSwitchSlider:before {
 
 /* Style for a general label on the bottom of the landing view. */
 .bot_label {
-    font-size: 9px;
+    font-size: 14px;
     letter-spacing: 1px;
     font-weight: bold;
     text-shadow: 0px 0px 0px #bebcbb;
@@ -3203,183 +3336,16 @@ input:checked + .toggleSwitchSlider:before {
 /* Maintains maximum width on the status bar. */
 #server_status_wrapper {
     display: inline-flex;
-    width: 75px;
+    width: auto;
 }
 
 /* Span which displays the player count of the selected server. */
 #player_count {
     color: #949494;
-    font-size: 8px;
+    font-size: 14px;
     font-weight: 900;
     text-shadow: 0px 0px 20px #949494;
     margin-left: 10px;
-}
-
-/* Wrapper container for the mojang status bar. */
-#mojangStatusWrapper {
-    position: relative;
-    display: flex;
-    cursor: pointer;
-}
-
-/* Icon which displays the status of the mojang services. */
-#mojang_status_icon {
-    font-size: 30px;
-    color: #848484;
-    margin-left: 15px;
-    font-family: 'sans-serif';
-}
-
-/* Tooltip which displays more details about the mojang statuses. */
-#mojangStatusTooltip {
-    position: absolute;
-    visibility: hidden;
-    opacity: 0;
-    width: 145px;
-    min-height: 150px;
-    background-color: rgba(0, 0, 0, 0.75);
-    color: #fff;
-    border-radius: 4px;
-    padding: 5px 10px;
-    z-index: 1;
-    font-family: 'Avenir Medium';
-    font-size: 12px;
-    transition: visibility 0s linear 0.25s, opacity 0.25s ease;
-    bottom: calc(100% + 15px);
-    transform: translateX(-50%);
-    margin-left: 50%;
-    box-shadow: 0px 0px 20px rgb(0, 0, 0);
-    cursor: default;
-}
-#mojangStatusTooltip:after {
-    content: " ";
-    position: absolute;
-    left: 50%;
-    top: 100%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: rgba(0, 0, 0, 0.75) transparent transparent transparent;
-}
-#mojangStatusWrapper:hover #mojangStatusTooltip {
-    visibility: visible;
-    opacity: 1;
-    transition-delay: 0s;
-}
-
-/* Tooltip title for the mojang statuses. */
-#mojangStatusTooltipTitle {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 5px;
-    letter-spacing: 1px;
-}
-
-/* Wrapper container for the non essential services title. */
-#mojangStatusNEContainer {
-    display: flex;
-    align-items: center;
-    margin: 10px 0px;
-}
-
-/* White bar which surrounds the non essential service title. */
-.mojangStatusNEBar {
-    height: 1px;
-    width: 100%;
-    background: white;
-}
-
-/* Non essential service title text. */
-#mojangStatusNETitle {
-    font-size: 10px;
-    padding: 0px 3px;
-    text-align: center;
-    letter-spacing: 1px;
-}
-
-/* Wrapper container for mojang service information. */
-.mojangStatusContainer {
-    display: flex;
-}
-
-/* Displays the name of the mojang service. */
-.mojangStatusName {
-    width: 100%;
-    font-size: 10px;
-    letter-spacing: 1px;
-    line-height: 12px;
-    padding: 6px 0px;
-}
-
-/* Displays the status of the mojang service. */
-.mojangStatusIcon {
-    margin-right: 10px;
-    font-size: 18.5px;
-    color: #848484;
-}
-
-/* * *
-* Landing View (Bottom Styles) | Center Content
-* * */
-
-/* Button which opens the news view. */
-#newsButton {
-    background: none;
-    border: none;
-    cursor: pointer;
-    outline: none;
-}
-#newsButton:hover #newsButtonText,
-#newsButton:focus #newsButtonText {
-    text-shadow: 0px 0px 20px #fff, 0px 0px 20px #fff;
-}
-#newsButton:active {
-    color: #c7c7c7;
-    text-shadow: 0px 0px 20px #c7c7c7, 0px 0px 20px #c7c7c7;
-}
-
-#newsButton:hover #newsButtonSVG,
-#newsButton:focus #newsButtonSVG {
-    -webkit-filter: drop-shadow(0px 0px 2px #fff);
-}
-#newsButton:active #newsButtonSVG .arrowLine {
-    stroke: #c7c7c7;
-}
-#newsButton:active #newsButtonSVG {
-    -webkit-filter: drop-shadow(0px 0px 2px #c7c7c7);
-}
-#newsButton:disabled #newsButtonSVG .arrowLine {
-    stroke: rgba(255, 255, 255, 0.75);
-}
-
-/* Icon which indicates there is new news. */
-#newsButtonAlert {
-    width: 5px;
-    height: 5px;
-    position: absolute;
-    border-radius: 50%;
-    background: red;
-    right: -1px;
-    top: 50%;
-}
-
-/* Arrow image which floats above the news button. */
-#newsButtonSVG {
-    height: 11px;
-    margin-left: -2px;
-    transition: 0.25s ease;
-}
-
-/* Span which contains the news button text. */
-#newsButtonText {
-    color: white;
-    font-weight: 900;
-    letter-spacing: 2px;
-    text-shadow: 0px 0px 0px #bebcbb;
-    font-size: 11px;
-    line-height: 30px;
-    display: flex;
-    transition: 0.25s ease;
 }
 
 /* * *
@@ -3389,31 +3355,37 @@ input:checked + .toggleSwitchSlider:before {
 /* Main launch content container. */
 #landingContainer > #lower > #right #launch_content {
     position: relative;
-    top: 25px;
+    top: 20%;
     display: inline-flex;
 }
 
 /* The launch button. */
 #launch_button {
-    background: none;
-    border: none;
     cursor: pointer;
     font-weight: 900;
     letter-spacing: 2px;
     text-shadow: 0px 0px 0px #bebcbb;
     font-size: 20px;
-    padding: 0px;
     transition: 0.25s ease;
     outline: none;
+    background: var(--main-button-background-color);
+    border: 1px solid var(--main-border-color);
+    border-radius: 10px;
+    padding: 20px 50px;
+    margin-bottom: 40px;
 }
+
 #launch_button:hover,
 #launch_button:focus {
     text-shadow: 0px 0px 20px #fff, 0px 0px 20px #fff;
+    border: 1px solid #383B4C;
 }
+
 #launch_button:active {
     color: #c7c7c7;
     text-shadow: 0px 0px 20px #c7c7c7, 0px 0px 20px #c7c7c7;
 }
+
 #launch_button:disabled {
     color: #c7c7c7;
     cursor: default;
@@ -3488,6 +3460,7 @@ input:checked + .toggleSwitchSlider:before {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    height: max-content;
 }
 
 /*******************************************************************************
@@ -3671,27 +3644,32 @@ input:checked + .toggleSwitchSlider:before {
 #accountSelectListScrollable::-webkit-scrollbar-thumb {
     border-radius: 10px;
     box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.50);
+    border: 1px solid #ffffff;
+    
 }
 
 /* Content container for a server listing. */
 .serverListing {
-    border: none;
     padding: 0px;
     width: 375px;
     min-height: 60px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    opacity: 0.6;
+    color: rgb(165, 165, 165);
     transition: 0.25s ease;
     cursor: pointer;
     position: relative;
-    background: rgba(131, 131, 131, 0.25);
+    border: 1px solid var(--main-border-color);
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
 }
 .serverListing[selected] {
+    color: white;
     cursor: default;
-    opacity: 1.0;
+    border: 1px solid #383B4C;
 }
+
 .serverListing:hover,
 .serverListing:focus {
     outline: none;
