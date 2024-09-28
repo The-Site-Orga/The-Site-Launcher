@@ -49,7 +49,8 @@ if(!isDev){
                 loggerAutoUpdater.info('New update available', info.version)
                 
                 if(process.platform === 'darwin'){
-                    info.darwindownload = `https://github.com/The-Site-Orga/The-Site-Launcher/releases/download/${info.version}/The-Site-Launcher-setup-${info.version}${process.arch === 'arm64' ? '-arm64' : '-x64'}.dmg`                    showUpdateUI(info)
+                    info.darwindownload = `https://github.com/dscalzi/HeliosLauncher/releases/download/v${info.version}/Helios-Launcher-setup-${info.version}${process.arch === 'arm64' ? '-arm64' : '-x64'}.dmg`
+                    showUpdateUI(info)
                 }
                 
                 populateSettingsUpdateInformation(info)
