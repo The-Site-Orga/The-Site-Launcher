@@ -1,9 +1,9 @@
 {
   "name": "thesitelauncher",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "productName": "The Site Launcher",
   "description": "Launcher Officiel de The Site",
-  "author": "Daniel Scalzi (https://github.com/dscalzi/)",
+  "author": "The Site",
   "license": "UNLICENSED",
   "homepage": "hhttps://github.com/the-site-orga/The-Site-Launcher",
   "bugs": {
@@ -37,6 +37,7 @@
     "jquery": "^3.7.1",
     "lodash.merge": "^4.6.2",
     "semver": "^7.6.0",
+    "thesitelauncher": "file:",
     "toml": "^3.0.0"
   },
   "devDependencies": {
