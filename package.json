@@ -1,6 +1,6 @@
 {
   "name": "thesitelauncher",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "productName": "The Site Launcher",
   "description": "Launcher Officiel de The Site",
   "author": "The Site",
@@ -37,6 +37,7 @@
     "jquery": "^3.7.1",
     "lodash.merge": "^4.6.2",
     "semver": "^7.6.0",
+    "thesitelauncher": "file:",
     "toml": "^3.0.0"
   },
   "devDependencies": {
