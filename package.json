@@ -1,13 +1,13 @@
 {
   "name": "thesitelauncher",
-  "version": "2.2.1",
+  "version": "1.0.4",
   "productName": "The Site Launcher",
   "description": "Launcher Officiel de The Site",
-  "author": "Daniel Scalzi (https://github.com/dscalzi/)",
+  "author": "The Site",
   "license": "UNLICENSED",
-  "homepage": "https://the-site.fr/",
+  "homepage": "hhttps://github.com/the-site-orga/The-Site-Launcher",
   "bugs": {
-    "url": "https://discord.the-site.fr/"
+    "url": "https://github.com/the-site-orga/The-Site-Launcher/issues"
   },
   "private": true,
   "main": "index.js",

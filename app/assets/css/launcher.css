@@ -2909,20 +2909,20 @@ input:checked + .toggleSwitchSlider:before {
     height: 20%;
     width: 20%;
     border-radius: 50%;
-    margin-top: 40px;
+    margin-top: 40%;
 }
 
 /* Logo container styles w/ update. */
 #image_seal_container[update]{
-    cursor: pointer
+    cursor: pointer;
 }
 #image_seal_container[update]:before,
 #image_seal_container[update]:after {
     cursor: pointer;
     position: absolute;
     content: '';
-    height: 100%;
-    width: 100%;
+    height: 100px;
+    width: 100px;
     top: 0%;
     left: 0%;
     border-radius: 50%;
@@ -2939,7 +2939,7 @@ input:checked + .toggleSwitchSlider:before {
     cursor: pointer;
     visibility: hidden;
     opacity: 0;
-    width: 100px;
+    width: 120px;
     height: 15px;
     background-color: rgb(0, 0, 0);
     color: #fff;
@@ -2949,8 +2949,7 @@ input:checked + .toggleSwitchSlider:before {
     position: absolute;
     z-index: 1;
     top: 115%;
-    left: -17.5px;
-    font-family: 'Avenir Medium';
+    left: -10px;
     font-size: 12px;
     transition: visibility 0s linear 0.25s, opacity 0.25s ease;
 }
@@ -3395,7 +3394,7 @@ input:checked + .toggleSwitchSlider:before {
 /* Launch details main container, hidden until launch processing begins. */
 #launch_details {
     position: relative;
-    top: 25px;
+    top: 22%;
     display: none;
 }
  
