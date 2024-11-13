@@ -55,18 +55,18 @@ const loggerLanding = LoggerUtil.getLogger('Landing')
  * 
  * @param {boolean} loading True if the loading area should be shown, otherwise false.
  */
-function toggleLaunchArea(loading){
-    if(loading) {
-        launch_details.style.display = 'flex'
-        launch_content.style.display = 'none'
-        launch_button.disabled = true
-        launch_button.innerHTML = Lang.queryJS('landing.launch.launching')
-    } else {
-        launch_details.style.display = 'none'
-        launch_content.style.display = 'inline-flex'
-        launch_button.innerHTML = Lang.queryJS('landing.launchButton')
-        launch_button.disabled = false
-    }
+function showLaunchArea() {
+    launch_details.style.display = 'flex'
+    launch_content.style.display = 'none'
+    launch_button.disabled = true
+    launch_button.innerHTML = Lang.queryJS('landing.launch.launching')
+}
+
+function hideLaunchArea() {
+    launch_details.style.display = 'none'
+    launch_content.style.display = 'inline-flex'
+    launch_button.innerHTML = Lang.queryJS('landing.launchButton')
+    launch_button.disabled = false
 }
 
 /**
@@ -120,7 +120,7 @@ document.getElementById('launch_button').addEventListener('click', async e => {
         } else {
 
             setLaunchDetails(Lang.queryJS('landing.launch.pleaseWait'))
-            toggleLaunchArea(true)
+            showLaunchArea()
             setLaunchPercentage(0, 100)
 
             const details = await validateSelectedJvm(ensureJavaDirIsRoot(jExe), server.effectiveJavaOptions.supported)
@@ -234,7 +234,7 @@ function showLaunchFailure(title, desc){
     )
     setOverlayHandler(null)
     toggleOverlay(true)
-    toggleLaunchArea(false)
+    hideLaunchArea()
 }
 
 /* System (Java) Scan */
