@@ -1,5 +1,4 @@
-// insert the site, website api with api url is https://api.the-site.fr/
-const API_URL = 'http://localhost:3000/'
+const API_URL = 'http://api.the-site.fr/' // API URL
 
 /**
  * Get the distribution from the API and check if player is in whitelist.
