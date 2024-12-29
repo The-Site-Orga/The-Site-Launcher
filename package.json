@@ -1,6 +1,6 @@
 {
   "name": "thesitelauncher",
-  "version": "1.0.4-dev",
+  "version": "1.0.4",
   "productName": "The Site Launcher",
   "description": "Launcher Officiel de The Site",
   "author": "The Site",
@@ -41,7 +41,7 @@
     "toml": "^3.0.0"
   },
   "devDependencies": {
-    "electron": "^13.6.9",
+    "electron": "^30.0.1",
     "electron-builder": "^24.13.3",
     "eslint": "^8.57.0"
   },
