@@ -27,9 +27,9 @@ const {
     extractJdk
 }                             = require('helios-core/java')
 
-const {
-    isWhitelist
-}                             = require('./assets/js/apimanager')
+// const {
+//     isWhitelist
+// }                             = require('./assets/js/apimanager')
 
 // Internal Requirements
 const DiscordWrapper          = require('./assets/js/discordwrapper')
@@ -162,7 +162,7 @@ function updateSelectedAccount(authUser){
         }
         if(authUser.uuid != null){
             document.getElementById('avatarContainer').style.backgroundImage = `url('https://mc-heads.net/avatar/${authUser.uuid}')`
-            user_rank.innerHTML = isWhitelist(authUser.uuid) ? 'Whitelisted' : 'Not Whitelisted'
+            // user_rank.innerHTML = isWhitelist(authUser.uuid) ? 'Whitelisted' : 'Not Whitelisted'
         }
     }
     user_name.innerHTML = username
@@ -247,7 +247,7 @@ function showLaunchFailure(title, desc){
 async function asyncSystemScan(effectiveJavaOptions, launchAfter = true) {
 
     setLaunchDetails(Lang.queryJS('landing.systemScan.checking'))
-    toggleLaunchArea(true)
+    showLaunchArea()
     setLaunchPercentage(0, 100)
 
     const jvmDetails = await discoverBestJvmInstallation(
@@ -285,7 +285,7 @@ async function asyncSystemScan(effectiveJavaOptions, launchAfter = true) {
                     Lang.queryJS('landing.systemScan.javaRequiredCancel')
                 )
                 setOverlayHandler(() => {
-                    toggleLaunchArea(false)
+                    hideLaunchArea()
                     toggleOverlay(false)
                 })
                 setDismissHandler(() => {
@@ -421,7 +421,7 @@ async function dlAsync(login = true) {
     }
 
     setLaunchDetails(Lang.queryJS('landing.dlAsync.pleaseWait'))
-    toggleLaunchArea(true)
+    showLaunchArea()
     setLaunchPercentage(0, 100)
 
     const fullRepairModule = new FullRepair(
@@ -507,7 +507,7 @@ async function dlAsync(login = true) {
         const SERVER_JOINED_REGEX = new RegExp(`\\[.+\\]: \\[CHAT\\] ${authUser.displayName} joined the game`)
 
         const onLoadComplete = () => {
-            toggleLaunchArea(false)
+            hideLaunchArea()
             if(hasRPC){
                 DiscordWrapper.updateDetails(Lang.queryJS('landing.discord.loading'))
                 proc.stdout.on('data', gameStateChange)
